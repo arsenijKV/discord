@@ -1,0 +1,5 @@
+0 cars
+1 factory
+2 ice
+3 trash
+4 forest
