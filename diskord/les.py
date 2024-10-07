@@ -1,7 +1,7 @@
 from keras.models import load_model  # TensorFlow is required for Keras to work
 from PIL import Image, ImageOps  # Install pillow instead of PIL
 import numpy as np
-def les(path):
+def les(pat):
     # Disable scientific notation for clarity
     np.set_printoptions(suppress=True)
 
@@ -17,7 +17,7 @@ def les(path):
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
     # Replace this with the path to your image
-    image = Image.open(path).convert("RGB")
+    image = Image.open(pat).convert("RGB")
 
     # resizing the image to be at least 224x224 and then cropping from the center
     size = (224, 224)
@@ -39,5 +39,4 @@ def les(path):
     confidence_score = prediction[0][index]
 
     # Print prediction and confidence score
-    print("Class:", class_name[2:], end="")
-    print("Confidence Score:", confidence_score)
+    return class_name[2:-1]
