@@ -185,28 +185,67 @@ async def ai(ctx):
     else:
          await ctx.send('Вы не загрузили картинку')        
 
-
 @bot.command()
 async def trash(ctx):
- if ctx.message.attachments:
-        for attachment in ctx.message.attachments:
-             file_neme = attachment.filename
-             file_arl = attachment.url
-             await attachment.save(f'trach_img/{file_neme}')
-             await ctx.send(f'save into the trach_img/{file_neme}')   
-             trach = les(f'trach_img/{file_neme}')
-             await ctx.send(trach)
-             if trach == 'cars':
-                 print('')
-             elif trach == 'factory':
-                 print('')
-             elif trach == 'ice':
-                 print('')
-             elif trach == 'trash':
-                 print('')
-             elif trach == 'forest':
-                 print('')
-             else:
-                 print('картинка не потдержтваеться или вы забыли вставить ее, повторите снова')
+    if ctx.message.attachments:
+            for attachment in ctx.message.attachments:
+                file_neme = attachment.filename
+                file_arl = attachment.url
+                await attachment.save(f'trach_img/{file_neme}')
+                await ctx.send(f'save into the trach_img/{file_neme}')   
+                trach = les(f'trach_img/{file_neme}')
+                await ctx.send(trach)
+                if trach == 'cars':
+                    mem = random.choice([1, 2, 3, 4])
+                    if mem in [1, 2, 3]:
+                        await ctx.send('к сожаению, ты мало чем может помочь если ты не популярен или будешь дейстовать один, и сейчас наука не дошла дошла до такого что бы машины не несли вред, но:')
+                        await ctx.send('решение - ты должен закончить всю эту школу чтобы получить ачивку"высшое образование" и поступить в ряд ученых, что бы изобрести клапон, для уменьшение дыма, или уже машину')
+                    elif mem == 4:
+                         img = random.choice(os.listdir('memes'))
+                         with open(f'memes/{img}', 'rb') as f:
+                            pictur = discord.File(f)
+                            await ctx.send(file=pictur)
+                elif trach == 'factory':
+                    mem = random.choice([1, 2, 3, 4])
+                    if mem in [1, 2, 3]:
+                        await ctx.send('это частая причина, заводы выпускают много загрезняющего дыма(там много хим элементов), решение - 1.получить ачивку"высшое образование" и поступить в ряд ученых')
+                        await ctx.send('2. Придумать альтернотивный источник питания, что бы заводы не наносили урон природе🪓. Также ты можешь создавать движения, что бы ученые лучше работали')
+                    elif mem == 4:
+                         img = random.choice(os.listdir('memes'))
+                         with open(f'memes/{img}', 'rb') as f:
+                            pictur = discord.File(f)
+                            await ctx.send(file=pictur)
+                elif trach == 'ice':
+                    mem = random.choice([1, 2, 3, 4])
+                    if mem in [1, 2, 3]:
+                        await ctx.send('надо уменьшить другие проблемы потепелния')
+                    elif mem == 4:
+                         img = random.choice(os.listdir('memes'))
+                         with open(f'memes/{img}', 'rb') as f:
+                            pictur = discord.File(f)
+                            await ctx.send(file=pictur)
+                elif trach == 'trash':
+                    mem = random.choice([1, 2, 3, 4])
+                    if mem in [1, 2, 3]:
+                        await ctx.send('ты должен выбросить этот мусор(если его не много) в ближайший контейнер🗑🚮, если мусора многа, вызови службу для поимки мусора, если ты сильный, то донеси из до пункта сбора мусора🗑🚮')
+                    elif mem == 4:
+                         img = random.choice(os.listdir('memes'))
+                         with open(f'memes/{img}', 'rb') as f:
+                            pictur = discord.File(f)
+                            await ctx.send(file=pictur)
+                elif trach == 'forest':
+                    mem = random.choice([1, 2, 3, 4])
+                    if mem in [1, 2, 3]:
+                        await ctx.send('Надо начать сажать ростки деревье на место вырубленого дерева, и начни снимать видео про это, так ты привлечешь много людей делать также.')
+                        await ctx.send('Дерево - это очень распространеный вид продукта, у тебя самого много вещей из дерева, так что запретить вырубку почти не возможно')
+                    elif mem == 4:
+                         img = random.choice(os.listdir('memes'))
+                         with open(f'memes/{img}', 'rb') as f:
+                            pictur = discord.File(f)
+                            await ctx.send(file=pictur)
+    else:
+        await ctx.send('картинка не потдержтваеться или вы забыли вставить ее, повторите снова')
 
+
+                
 bot.run('')
